@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.5
+mid_height = 2.0
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 1, 0.15, 3 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 0.34613, 1 )
+
+[node name="Game" type="Node"]
+
+[node name="TestLevel" type="Spatial" parent="."]
+
+[node name="Player" type="KinematicBody" parent="TestLevel"]
+
+[node name="Body" type="MeshInstance" parent="TestLevel/Player"]
+transform = Transform( 1, 0, 0, 0, -2.98023e-008, 1, 0, -1, -2.98023e-008, 0, 1.44837, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Skate" type="MeshInstance" parent="TestLevel/Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.086818, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="TestLevel/Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.192995, 0 )
+shape = SubResource( 3 )
